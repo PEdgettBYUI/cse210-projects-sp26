@@ -6,6 +6,7 @@
 // not recognized as valid grades.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 class Program
 {
@@ -13,6 +14,17 @@ class Program
     {
         Console.WriteLine("Hello Prep2 World!\n");
 
+        Console.Write("What is your grade(%)? ");
+        string UsrInp_PTE = Console.ReadLine();
         
+        float GradeNum_PTE = float.Parse(UsrInp_PTE);
+        char GradeLet_PTE = 'E';
+
+        // Logic Map for A to F
+        if (GradeNum_PTE >= 90)
+        {
+            
+        }
+
     }
 }
