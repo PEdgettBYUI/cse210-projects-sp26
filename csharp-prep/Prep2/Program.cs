@@ -45,22 +45,22 @@ class Program
             GradeLet_PTE = 'A';
             if (GradeNum_PTE < 97) {Sign_PTE = GetSign_PTE(GradeNum_PTE);}
         }
-        else if (GradeNum_PTE >= 90)    // B, B+, B-
+        else if (GradeNum_PTE >= 80)    // B, B+, B-
         {
             GradeLet_PTE = 'B';
             Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
-        else if (GradeNum_PTE >= 90)    // C, C+, C-
+        else if (GradeNum_PTE >= 70)    // C, C+, C-
         {
             GradeLet_PTE = 'C';
             Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
-        else if (GradeNum_PTE >= 90)    // D, D+, D-
+        else if (GradeNum_PTE >= 60)    // D, D+, D-
         {
             GradeLet_PTE = 'D';
             Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
-        else if (GradeNum_PTE >= 90) // F
+        else if (GradeNum_PTE < 60) // F
         {
             GradeLet_PTE = 'F';
         }
