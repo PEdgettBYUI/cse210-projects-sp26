@@ -20,19 +20,15 @@ class Program
             int digit = (int)GradeVal;  // ChatGPT recommended method of conversion "Casting"
 
             char Modifier_PTE;
-            if (digit % 10 >= 7)
-            {
+            if (digit % 10 >= 7) {
                 Modifier_PTE = '+';
             }
-            else if (digit % 10 <= 3)
-            {
+            else if (digit % 10 <= 3) {
                 Modifier_PTE = '-';
             }
-            else
-            {
+            else {
                 Modifier_PTE = '\0';    // \0 is the NUL char value
             }
-
             return Modifier_PTE;
         }
 
@@ -41,31 +37,36 @@ class Program
         
         float GradeNum_PTE = float.Parse(UsrInp_PTE);   // Parse string to float
         char GradeLet_PTE = 'E';
+        char Sign_PTE = '\0';   // \0 is the NUL char value
 
         // Logic Map for A to F
         if (GradeNum_PTE >= 90) // A, A-
         {
             GradeLet_PTE = 'A';
+            if (GradeNum_PTE < 97) {Sign_PTE = GetSign_PTE(GradeNum_PTE);}
         }
         else if (GradeNum_PTE >= 90)    // B, B+, B-
         {
-            
+            GradeLet_PTE = 'B';
+            Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
         else if (GradeNum_PTE >= 90)    // C, C+, C-
         {
-            
+            GradeLet_PTE = 'C';
+            Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
         else if (GradeNum_PTE >= 90)    // D, D+, D-
         {
-            
+            GradeLet_PTE = 'D';
+            Sign_PTE = GetSign_PTE(GradeNum_PTE);
         }
         else if (GradeNum_PTE >= 90) // F
         {
-            
+            GradeLet_PTE = 'F';
         }
 
         // Display letter grade
-        Console.WriteLine($"Your final grade is {GradeLet_PTE}.");
+        Console.WriteLine($"Your final grade is {GradeLet_PTE}{Sign_PTE}.");
 
     }
 }
