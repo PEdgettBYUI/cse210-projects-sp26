@@ -34,7 +34,7 @@ class Program
 
 // Prog Start
         // Program Intro
-        Console.WriteLine("Welcome to the Grade Evaluator!\n Accurate to values up to .00% precision!\n     (NOTE: Negative Values will be corrected to Positive values)\n  (NOTE: Grades with at least .5% over the sign-threshold will be given the higher sing-value in their letter grade.)\n\n");
+        Console.WriteLine("Welcome to the Grade Evaluator!\n Accurate to values up to .00% precision!\n   (NOTE: Negative Values will be corrected to Positive values)\n   (NOTE: Grades with at least .5% over the sign-threshold will be given the higher sign-value in their letter grade.)\n\n");
         Console.Write("What is your grade(%)? ");
         string UsrInp_PTE = Console.ReadLine();
         
