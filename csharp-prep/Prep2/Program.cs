@@ -15,10 +15,10 @@ class Program
     {
         Console.WriteLine("Hello Prep2 World!\n");
 
-        char GetSign_PTE(float GradeVal)
+        char GetSign_PTE(float GradeVal)    // NOTE: Should any value above the threshold be eligible for the higher sign value? Is 83.01% Enough for a 'B'? or is it still a 'B-'?
         {
             int digit = (int)Math.Round(GradeVal);  // ChatGPT recommended method of conversion "Casting"
-                                            // By rounding up, we fix incorrectly given signs (i.e 83.2 Should be a 'B', NOT 'B-')
+                                            // By rounding up, we fix incorrectly given signs (i.e 83.5 Should be a 'B', NOT 'B-')
             char Modifier_PTE;
             if (digit % 10 >= 7) {
                 Modifier_PTE = '+';
@@ -32,6 +32,9 @@ class Program
             return Modifier_PTE;
         }
 
+// Prog Start
+        // Program Intro
+        Console.WriteLine("Welcome to the Grade Evaluator!\n Accurate to values up to .00% precision!\n     (NOTE: Negative Values will be corrected to Positive values)\n  (NOTE: Grades with at least .5% over the sign-threshold will be given the higher sing-value in their letter grade.)\n\n");
         Console.Write("What is your grade(%)? ");
         string UsrInp_PTE = Console.ReadLine();
         
@@ -67,7 +70,7 @@ class Program
         }
 
         // Display letter grade
-        Console.WriteLine($"Your final grade is {GradeLet_PTE}{Sign_PTE}.");
+        Console.WriteLine($"Your final grade is {GradeLet_PTE}{Sign_PTE}.\n");
 
     }
 }
