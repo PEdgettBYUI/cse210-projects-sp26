@@ -17,8 +17,8 @@ class Program
 
         char GetSign_PTE(float GradeVal)
         {
-            int digit = (int)GradeVal;  // ChatGPT recommended method of conversion "Casting"
-
+            int whole = (int)Math.Round(GradeVal);  // ChatGPT recommended method of conversion "Casting"
+                                            // By rounding up, we fix incorrectly given signs (i.e 83.2 Should be a 'B', NOT 'B-')
             char Modifier_PTE;
             if (digit % 10 >= 7) {
                 Modifier_PTE = '+';
@@ -35,7 +35,8 @@ class Program
         Console.Write("What is your grade(%)? ");
         string UsrInp_PTE = Console.ReadLine();
         
-        float GradeNum_PTE = float.Parse(UsrInp_PTE);   // Parse string to float
+        if (!float.TryParse(UsrInp_PTE, out float temp)) return; // or handle error     // ChatGPT Error Handling Suggestion
+        float GradeNum_PTE = Math.Abs(temp);
         char GradeLet_PTE = 'E';
         char Sign_PTE = '\0';   // \0 is the NUL char value
 
