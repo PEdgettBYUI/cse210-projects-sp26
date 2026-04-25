@@ -7,6 +7,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -14,17 +15,57 @@ class Program
     {
         Console.WriteLine("Hello Prep2 World!\n");
 
+        char GetSign_PTE(float GradeVal)
+        {
+            int digit = (int)GradeVal;  // ChatGPT recommended method of conversion "Casting"
+
+            char Modifier_PTE;
+            if (digit % 10 >= 7)
+            {
+                Modifier_PTE = '+';
+            }
+            else if (digit % 10 <= 3)
+            {
+                Modifier_PTE = '-';
+            }
+            else
+            {
+                Modifier_PTE = '\0';    // \0 is the NUL char value
+            }
+
+            return Modifier_PTE;
+        }
+
         Console.Write("What is your grade(%)? ");
         string UsrInp_PTE = Console.ReadLine();
         
-        float GradeNum_PTE = float.Parse(UsrInp_PTE);
+        float GradeNum_PTE = float.Parse(UsrInp_PTE);   // Parse string to float
         char GradeLet_PTE = 'E';
 
         // Logic Map for A to F
-        if (GradeNum_PTE >= 90)
+        if (GradeNum_PTE >= 90) // A, A-
+        {
+            GradeLet_PTE = 'A';
+        }
+        else if (GradeNum_PTE >= 90)    // B, B+, B-
         {
             
         }
+        else if (GradeNum_PTE >= 90)    // C, C+, C-
+        {
+            
+        }
+        else if (GradeNum_PTE >= 90)    // D, D+, D-
+        {
+            
+        }
+        else if (GradeNum_PTE >= 90) // F
+        {
+            
+        }
+
+        // Display letter grade
+        Console.WriteLine($"Your final grade is {GradeLet_PTE}.");
 
     }
 }
