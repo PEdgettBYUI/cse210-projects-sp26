@@ -17,7 +17,7 @@ class Program
 
         char GetSign_PTE(float GradeVal)
         {
-            int whole = (int)Math.Round(GradeVal);  // ChatGPT recommended method of conversion "Casting"
+            int digit = (int)Math.Round(GradeVal);  // ChatGPT recommended method of conversion "Casting"
                                             // By rounding up, we fix incorrectly given signs (i.e 83.2 Should be a 'B', NOT 'B-')
             char Modifier_PTE;
             if (digit % 10 >= 7) {
