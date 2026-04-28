@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.InteropServices;
 
 class Program
 {
     static void Main(string[] args)
     {
+    // Game start Initialized
+    string replay_PTE = "y";
         // Program introduction
         Console.WriteLine("Hello Prep3 World!");
         Console.WriteLine("This is the Number Guesser Game");
@@ -17,5 +20,25 @@ class Program
         int magicNum_PTE = randGen_PTE.Next(1,maxNum_PTE);
         Console.WriteLine($"Game Difficulty: 1 to {maxNum_PTE}\n\n");
         // Console.WriteLine($"Magic Num: {magicNum_PTE}\n"); // TEST
+
+
+        // User input of Guess
+        string guess_PTE;
+        // Converted Guess to Int
+        int n_guess_PTE;
+        // Count of Guesses
+        int tries_PTE = 0;
+        
+    // Start Game
+        do {
+            Console.WriteLine("I'm a really cool dude. And that's a fact.");
+
+
+            // Ask to continue or not; if not, then exit
+            Console.WriteLine("Do you want to play again?\nType 'y' to replay, or press ENTER to EXIT.");
+            replay_PTE = Console.ReadLine();
+        }
+        while (replay_PTE == "y");
+
     }
 }
