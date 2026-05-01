@@ -6,7 +6,19 @@ class Program
     {
         Console.WriteLine("Hello Prep5 World!\n\n");
 
-        
+        DisplayWelcome();
+        string UserName_PTE = PromptUserName();
+        int UserNumber_PTE = PromptUserNumber();
+
+        int SquaredNumber_PTE = SquareNumber(UserNumber_PTE);
+
+        int BirthYear_PTE;
+        int CurrentYear_PTE = 2026;
+        PromptUserBirthYear(out BirthYear_PTE);
+
+        DisplayResult(UserName_PTE, SquaredNumber_PTE, BirthYear_PTE);
+
+        Console.WriteLine();
     }
 
 
@@ -42,9 +54,9 @@ class Program
         return Num_PTE * Num_PTE;
     }
 
-    static void DisplayResult(string Name_PTE, int Square_PTE, int BirthYear_PTE)
+    static void DisplayResult(string Name_PTE, int Square_PTE, int BirthYear_PTE, int CurrentYear_PTE)
     {
         Console.WriteLine($"{Name_PTE}, the square of your number is {Square_PTE}");
-        Console.WriteLine($"{Name_PTE}, you will turn {2026 - BirthYear_PTE} this year.");
+        Console.WriteLine($"{Name_PTE}, you will turn {CurrentYear_PTE - BirthYear_PTE} this year.");
     }
 }
