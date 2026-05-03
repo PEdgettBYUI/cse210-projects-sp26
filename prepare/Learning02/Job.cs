@@ -7,6 +7,6 @@ public class Job
 
     public void DisplayJobDetails()
     {
-        Console.WriteLine($"{_jobTitle_PTE}")
+        Console.WriteLine($"{_jobTitle_PTE} ({_company_PTE}) {_startYear_PTE}-{_endYear_PTE}");
     }
 }
