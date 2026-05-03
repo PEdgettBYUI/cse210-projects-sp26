@@ -27,6 +27,9 @@ class Program
         job2_PTE._startYear_PTE = 2019;
         job2_PTE._endYear_PTE = 2022;
 
+        myResume_PTE._jobs_PTE.Add(job1_PTE);
+        myResume_PTE._jobs_PTE.Add(job2_PTE);
+
         myResume_PTE.DisplayResume();
         Console.WriteLine();
 
