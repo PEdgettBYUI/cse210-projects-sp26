@@ -29,6 +29,12 @@ public class Entry
         _response_PTE = Console.ReadLine();
     }
 
+    // Display the current entry in an appealing visual format
+    public void displayEntry()
+    {
+        Console.WriteLine("Imagine.... an Entry!");
+    }
+
     // Converts all the data in Entry to s #-seperated string
     public string ConvertToString()
     {
