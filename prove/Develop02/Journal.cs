@@ -21,11 +21,16 @@ public class Journal
     // Name the Journal (NOTE: Extra Info later?)
     private string NameJournal()
     {
-        Console.WriteLine("Please name your Journal: ");
+        Console.Write("What's the name of your Journal? ");
         string name_PTE = Console.ReadLine();
 
-        Console.WriteLine($"[Journal Created: {name_PTE}");
+        // Console.WriteLine($"[Journal Created: {name_PTE}");
         return name_PTE;
+    }
+
+    public string getName()
+    {
+        return _journalName_PTE;
     }
 
     // Add an Entry object to the list of Entries.
@@ -42,7 +47,7 @@ public class Journal
         Console.WriteLine($"--Total Entries: {_entries_PTE.Count}--\n");
     }
 
-    // LOAD journal from a given filename .text-file
+    // LOAD journal from a given filename .text-file (needs to end in .txt)
     public void LoadJournal(string filename)
     {
         // Open the given file name
