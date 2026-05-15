@@ -15,17 +15,20 @@ public class Journal
     // Constructor
     public Journal()
     {
-        _journalName_PTE = NameJournal();
+        _entries_PTE = new List<Entry>();
+        // _journalName_PTE = NameJournal();
     }
 
-    // Name the Journal (NOTE: Extra Info later?)
-    private string NameJournal()
+    // Name the Journal
+    // NOTE: Messed up the constructor, this is a temporary fix
+    public void NameJournal()
     {
         Console.Write("What's the name of your Journal? ");
-        string name_PTE = Console.ReadLine();
+        // string name_PTE = Console.ReadLine();
 
         // Console.WriteLine($"[Journal Created: {name_PTE}");
-        return name_PTE;
+        // return name_PTE;
+        _journalName_PTE = Console.ReadLine();
     }
 
     public string getName()

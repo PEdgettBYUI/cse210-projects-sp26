@@ -48,8 +48,8 @@ public class Entry
     // Display the current entry in an appealing visual format
     public void DisplayEntry()
     {
-        Console.WriteLine($"   {_date_PTE}\n{bar_PTE}");
-        Console.WriteLine($"Today's Prompt:\n{_prompt_PTE}\n{bar_PTE}");
+        Console.WriteLine($"\n\n   {_date_PTE}\n{bar_PTE}");
+        Console.WriteLine($" -Today's Prompt:\n -{_prompt_PTE}\n");
         Console.WriteLine($"{_response_PTE}\n\n");
     }
 

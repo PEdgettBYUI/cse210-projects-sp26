@@ -16,12 +16,14 @@ class Program
 
         // Initialize classes
         Menu mainMenu_PTE = new Menu();
-        Journal currentJournal_PTE;
+        Journal currentJournal_PTE = new Journal();
 
         // Initialize variables for Main
         string input_PTE;
         int userChoice_PTE = 0;
 
+/*          // NOTE: Made a critical error in the construction of the class that I cannot fix at this time,
+            //   I will try to amend this later
         // Ask the User to Create New Journal or Load Journal
         do {
         Console.Write("Are you LOADING an existing Journal? (y/n)\n> ");
@@ -33,7 +35,7 @@ class Program
         // Load Journal
         if (input_PTE == "y")
         {
-            string journalFileName_PTE = Console.ReadLine() + ".txt";
+            string journalFileName_PTE = currentJournal_PTE.getName() + ".txt";
             currentJournal_PTE.LoadJournal(journalFileName_PTE);
         }
         // Tell the User their Journal was created
@@ -41,14 +43,14 @@ class Program
         {
             Console.WriteLine($"[Journal Created] Name: {currentJournal_PTE.getName()}");
         }
-
+*/
         
 
         // Begin Main Program Loop
         while (userChoice_PTE != 5)
         {
             // Display Menu & prompt user for choice
-            Console.WriteLine("     --DigiJourn--");
+            Console.WriteLine("\n  --DigiJourn--");
             mainMenu_PTE.DisplayMenu();
             Console.Write("Chose: ");
 
