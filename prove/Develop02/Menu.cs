@@ -19,32 +19,31 @@ class Menu
         {
             // Create new entry and add it to the journal.
             case 1:
-
+                Entry newEntry_PTE = new Entry();
+                aJournal.AddEntry(newEntry_PTE);
                 break;
-
             // Load an existing journal.
+            // NOTE: Remember to append ".txt"
             case 2:
-
+                Console.Write("What's the name of the Journal you want to LOAD? ");
+                string fileInput_PTE = Console.ReadLine();
+                aJournal.LoadJournal(fileInput_PTE + ".txt");
+                Console.WriteLine($"[Journal: \"{fileInput_PTE}\" Loaded.");
                 break;
 
             // Display each entry in the current journal.
             case 3:
-
+                aJournal.DisplayAll();
                 break;
 
             // Save the current journal to a text file.
-            case 4:
-
+            // If "case 5" is called, this will guarantee no progress is lost before EXIT.
+            case 4 & 5:
+                aJournal.SaveJournal();
                 break;
-
-            // Call Case 4 to Save & Close the Program
-            case 5:
-
-                break;
-
             // Invalid input case
             default:
-                Console.WriteLine("[INVALID Input!]");
+                Console.WriteLine("[INVALID Input!] Please put in a Valid Entry.]\n");
                 break;
         }
     }

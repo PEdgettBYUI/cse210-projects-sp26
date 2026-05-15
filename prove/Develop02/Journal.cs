@@ -77,14 +77,14 @@ public class Journal
         }
     }
 
-    // SAVE entries in _entries_PTE<> to a given filename .text-file
-    public void SaveJournal(string filename)
+    // SAVE entries in _entries_PTE<> to [_journalName_PTE].text-file
+    public void SaveJournal()
     {
         //Check if the list has entires, if not, Output error message
         if (_entries_PTE.Count >0) {
             // Using StreamWriter, go through _entries and output each Entry's ConvertToString()
             // NOTE: Streamwriter will create a new file of the given filename.txt if it does not exist already
-            using (StreamWriter outputFile = new StreamWriter(filename + ".txt"))
+            using (StreamWriter outputFile = new StreamWriter(_journalName_PTE + ".txt"))
             {
                 foreach (Entry entry in _entries_PTE)
                 {

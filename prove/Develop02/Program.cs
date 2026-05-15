@@ -53,9 +53,19 @@ class Program
             Console.Write("Chose: ");
 
             // Make sure the user input is valid before parsing
-
+            input_PTE = Console.ReadLine();
+            if(!int.TryParse(input_PTE, out userChoice_PTE))
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
 
             // parse the User's choice, if 5, also print a closing message
+            mainMenu_PTE.ParseUserChoice(userChoice_PTE, currentJournal_PTE);
+            if(userChoice_PTE == 5)
+            {
+                Console.WriteLine("[CLOSING program...]\n[Goodbye!]");
+            }
         }
     }
 }
