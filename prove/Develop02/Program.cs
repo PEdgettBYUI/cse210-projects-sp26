@@ -12,7 +12,7 @@ class Program
     static void Main(string[] args)
     {
         // Program Introduction
-        Console.WriteLine("Welcome to DigiJourn, \n    your Digital Journaling Companion.\n\n");
+        Console.WriteLine("\n\nWelcome to DigiJourn, \n    your Digital Journaling Companion.\n");
 
         // Initialize classes
         Menu mainMenu_PTE = new Menu();
@@ -63,7 +63,8 @@ class Program
             }
 
             // Check if the Journal has a name, if not, prompt the user to name the journal before continuing.
-            if (currentJournal_PTE.getName() == null)
+            // NOTE: SHOULD only run once after the first menu input then never again.
+            if (currentJournal_PTE.getName() == null && userChoice_PTE == 1)
             {
                 currentJournal_PTE.NameJournal();
                 Console.WriteLine("[Journal Created]\n");

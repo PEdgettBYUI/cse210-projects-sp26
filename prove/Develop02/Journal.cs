@@ -50,9 +50,20 @@ public class Journal
         Console.WriteLine($"--Total Entries: {_entries_PTE.Count}--\n");
     }
 
+    // Returns the count of entries in the list.
+    public int EntiresCount()
+    {
+        return _entries_PTE.Count;
+    }
+
     // LOAD journal from a given filename .text-file (needs to end in .txt)
     public void LoadJournal(string filename)
-    {
+    {   
+        // Makes sure journal name value is the correct name
+        _journalName_PTE = filename;
+        // Adds .txt for the file search function to work
+        filename = filename + ".txt";
+
         // Open the given file name
         if (System.IO.File.Exists(filename))
         {
@@ -85,7 +96,7 @@ public class Journal
     public void SaveJournal()
     {
         //Check if the list has entires, if not, Output error message
-        if (_entries_PTE.Count >0) {
+        if (EntiresCount() > 0) {
             // Using StreamWriter, go through _entries and output each Entry's ConvertToString()
             // NOTE: Streamwriter will create a new file of the given filename.txt if it does not exist already
             using (StreamWriter outputFile = new StreamWriter(_journalName_PTE + ".txt"))
