@@ -2,7 +2,7 @@
 *    Patrick T. Edgett 5/14/26
 *       Sources:
 *    1. Class documentation: https://byui-cse.github.io/cse210-course-2023/unit02/develop.html
-*    2. 
+*    2. https://github.com/PEdgettBYUI/cse210-projects-sp26
 *    3. 
 */
 using System.IO;
@@ -45,7 +45,7 @@ public class Journal
         foreach (Entry log in _entries_PTE)
         {
             log.DisplayEntry();
-            Console.WriteLine("\n---------------------------------------\n");
+            Console.WriteLine("---------------------------------------\n");
         }
         Console.WriteLine($"--Total Entries: {_entries_PTE.Count}--\n");
     }
@@ -72,6 +72,7 @@ public class Journal
                 // Append the new entry to the current journal's _entries list
                 this.AddEntry(f_entry);
             }
+            Console.WriteLine($"[Journal: \"{filename}\" Loaded.");
         }
         else
         {

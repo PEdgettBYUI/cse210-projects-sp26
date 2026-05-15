@@ -2,7 +2,7 @@
 *    Patrick T. Edgett 5/14/26
 *       Sources:
 *    1. Class documentation: https://byui-cse.github.io/cse210-course-2023/unit02/develop.html
-*    2. 
+*    2. https://github.com/PEdgettBYUI/cse210-projects-sp26
 *    3. 
 */
 class Menu
@@ -14,7 +14,7 @@ class Menu
 
     // NOTE: Pass in the name of a given journal to call the functions to. 
     public void ParseUserChoice(int choice, Journal aJournal)
-    {
+    {   
         switch(choice)
         {
             // Create new entry and add it to the journal.
@@ -28,7 +28,6 @@ class Menu
                 Console.Write("What's the name of the Journal you want to LOAD? ");
                 string fileInput_PTE = Console.ReadLine();
                 aJournal.LoadJournal(fileInput_PTE + ".txt");
-                Console.WriteLine($"[Journal: \"{fileInput_PTE}\" Loaded.");
                 break;
 
             // Display each entry in the current journal.
@@ -40,6 +39,7 @@ class Menu
             // If "case 5" is called, this will guarantee no progress is lost before EXIT.
             case 4 & 5:
                 aJournal.SaveJournal();
+                Console.WriteLine($"[JOURNAL Saved!]\n[SAVED as: {aJournal.getName()}.txt]");
                 break;
             // Invalid input case
             default:

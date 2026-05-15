@@ -2,7 +2,7 @@
 *    Patrick T. Edgett 5/14/26
 *       Sources:
 *    1. Class documentation: https://byui-cse.github.io/cse210-course-2023/unit02/develop.html
-*    2. 
+*    2. https://github.com/PEdgettBYUI/cse210-projects-sp26
 *    3. https://chatgpt.com/share/6a06620b-69dc-83e8-8722-bc50f1466cee
 */
 using System;
@@ -60,6 +60,13 @@ class Program
             {
                 Console.WriteLine("Please enter a valid number.");
                 continue;
+            }
+
+            // Check if the Journal has a name, if not, prompt the user to name the journal before continuing.
+            if (currentJournal_PTE.getName() == null)
+            {
+                currentJournal_PTE.NameJournal();
+                Console.WriteLine("[Journal Created]\n");
             }
 
             // parse the User's choice, if 5, also print a closing message
