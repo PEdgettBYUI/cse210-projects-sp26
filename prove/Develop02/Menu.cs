@@ -35,6 +35,7 @@ class Menu
                 break;
             // Display each entry in the current journal.
             case 3:
+                Console.Clear();
                 aJournal.DisplayAll();
 
                 PressToContinue();

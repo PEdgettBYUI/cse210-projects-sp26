@@ -16,7 +16,7 @@ public class Entry
     private string _response_PTE;
 
     // Lazy programmer's shame-Bar
-    string bar_PTE = new String('-', 30);
+    string bar_PTE = new String('-', 40);
 
     // Default Constructor
     public Entry()
@@ -41,7 +41,8 @@ public class Entry
     // Prompt User to record response to Entry
     public string RecordResponse()
     {
-        Console.WriteLine(_prompt_PTE); //NOTE: Make pretty
+        DisplayEntry();
+        // Console.WriteLine(_prompt_PTE); //NOTE: Make pretty
         Console.Write(">    ");
         return Console.ReadLine();
     }
@@ -49,8 +50,8 @@ public class Entry
     // Display the current entry in an appealing visual format
     public void DisplayEntry()
     {
-        Console.WriteLine($"\n\n   {_date_PTE}\n{bar_PTE}");
-        Console.WriteLine($"  Today's Prompt:\n -{_prompt_PTE}\n");
+        Console.WriteLine($"\n\n{_date_PTE}\n{bar_PTE}");
+        Console.WriteLine($"  Today's Prompt:\n - {_prompt_PTE}\n");
         Console.WriteLine($"{_response_PTE}");
     }
 

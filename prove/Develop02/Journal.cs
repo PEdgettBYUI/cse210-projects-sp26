@@ -42,12 +42,13 @@ public class Journal
     // Display all entries in the current Journal
     public void DisplayAll()
     {
+        Console.WriteLine($"\n  --Journal: {getName()}--");
         foreach (Entry log in _entries_PTE)
         {
             log.DisplayEntry();
-            Console.WriteLine("---------------------------------------\n");
+            Console.WriteLine("---------------------------------------");
         }
-        Console.WriteLine($"--Total Entries: {_entries_PTE.Count}--\n");
+        Console.WriteLine($"\n--Total Entries: {_entries_PTE.Count}--\n");
     }
 
     // Returns the count of entries in the list.

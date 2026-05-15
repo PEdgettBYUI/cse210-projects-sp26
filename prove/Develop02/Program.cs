@@ -66,8 +66,11 @@ class Program
             // NOTE: SHOULD only run once after the first menu input then never again.
             if (currentJournal_PTE.getName() == null && userChoice_PTE == 1)
             {
+                Console.Clear();
+                Console.WriteLine("\n[CREATING new Journal....]\n");
                 currentJournal_PTE.NameJournal();
-                Console.WriteLine("[Journal Created]\n");
+                Console.WriteLine("[Journal Created]\n> Press Any Key to Continue.");
+                Console.ReadKey();
             }
 
             // parse the User's choice, if 5, also print a closing message
