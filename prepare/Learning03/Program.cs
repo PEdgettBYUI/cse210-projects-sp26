@@ -8,6 +8,8 @@ class Program
         Fraction f1 = new Fraction();
         Console.WriteLine(f1.GetFractionString());
         Console.WriteLine(f1.GetDecimalValue());
+        f1.SetFraction();
+        Console.WriteLine(f1.GetFraction());    // Uses the "this()" keyword
 
         Fraction f2 = new Fraction(5);
         Console.WriteLine(f2.GetFractionString());

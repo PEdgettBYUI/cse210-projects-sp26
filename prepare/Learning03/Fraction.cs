@@ -6,6 +6,7 @@
 {
     private int _top;
     private int _bottom;
+    private string _fraction;
 
     // Constructors
     public Fraction()
@@ -40,6 +41,17 @@
     public int GetBottom()
     {
         return _bottom;
+    }
+
+    // Extra thing I made to practice using 'this'
+    public void SetFraction()
+    {
+        _fraction = this.GetFractionString();
+    }
+
+    public string GetFraction()
+    {
+        return _fraction;
     }
 
     // Methods
