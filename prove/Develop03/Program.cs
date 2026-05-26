@@ -5,5 +5,13 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop03 World!");
+
+        // Test Code for Reference.cs
+        /*
+        Reference testRef = new Reference("John", 3, 16);
+        Reference testRef2 = new Reference("Proverbs", 3, 5, 6);
+        Console.WriteLine(testRef); // This is possible because of the ToString Override
+        Console.WriteLine(testRef2); // This is possible because of the ToString Override
+        */
     }
 }
