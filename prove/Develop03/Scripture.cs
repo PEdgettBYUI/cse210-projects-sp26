@@ -54,11 +54,15 @@ public class Scripture
         int jlbWordsToHide = 5;
         int jlbUnhiddenWordsCount = _jlbWordsList.Count - CountHiddenWords();
 
+        // NOTE: Pull this out and replace it with a function call
+        //  to better satisfy design requirements
         if (jlbUnhiddenWordsCount == 0)
         {
             return true;
         }
 
+        // If there are less visible words than the amount that 
+        //  need to be hidden, only hide what needs to be hidden
         if (jlbUnhiddenWordsCount < jlbWordsToHide)
         {
             jlbWordsToHide = jlbUnhiddenWordsCount;
@@ -66,11 +70,14 @@ public class Scripture
 
         int jlbHiddenThisTurn = 0;
 
+        // While there are still words to hide, randomly find a word
+        //  that is not hidden and toggle hide flag, then iterate the counter
         while (jlbHiddenThisTurn < jlbWordsToHide)
         {
             int jlbRandomIndex = _jlbRandomGenerator.Next(_jlbWordsList.Count);
             Word jlbRandomWord = _jlbWordsList[jlbRandomIndex];
 
+            // Check if the word is hidden
             if (!jlbRandomWord.GetHidden())
             {
                 jlbRandomWord.Hide();
@@ -78,7 +85,8 @@ public class Scripture
             }
         }
 
-        return CountHiddenWords() == _jlbWordsList.Count;
+        return false;
+        // return CountHiddenWords() == _jlbWordsList.Count;
     }
 
     public int CountHiddenWords()
