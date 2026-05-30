@@ -1,0 +1,84 @@
+/* References Used or Borrowed from
+ * 1. https://chatgpt.com/share/6a18ac43-58f4-83e8-9a4a-4f0656ba9c95
+ * 2. https://chatgpt.com/share/6a19e56f-d17c-83e8-b981-b725cb694c3c
+ * 3. 
+ */
+using System.Text.Json;
+public class JsonScripture_Utility
+{
+    private string VolumeName_PTE;  // NOTE: Probably won't use now, but might be useful in future
+    private Dictionary<string, Dictionary<string, List<string>>>? _ScriptureObject_PTE;
+
+
+
+    public JsonScripture_Utility(string NameOfScripture, string filename){
+        VolumeName_PTE = NameOfScripture;
+
+        if (filename.Contains(".json")) {    
+            // See Reference 2.     (Use for testing -> "NT-Truncated-lds-scriptures-filtered.json")
+            string json_PTE = File.ReadAllText(GetJsonPath(filename));
+
+            _ScriptureObject_PTE =
+                JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<string>>>>(json_PTE);
+            if (_ScriptureObject_PTE == null) {
+                throw new Exception("Failed to deserialize scripture data.");
+            }
+
+            // Get the Values for Reference and the Text for the Words
+
+        }
+        else {throw new Exception("NOT A VALID JSON FILE");}    // Idk if this will work, TEST LATER
+    }
+
+    // Import JSON from Relative directory - Taken from ChatGPT
+    //      See Reference 2
+    private string GetJsonPath(string JsonFileName)
+    {
+        string path = Path.Combine(
+        // Console.WriteLine(AppContext.BaseDirectory);   // DEV NOTE: Use to find where your relative directory is and adjust accordingly
+        AppContext.BaseDirectory,
+        "..",
+        "..",
+        "..",
+        "GPT_lazyimports",
+        "Truncated JSONs",
+        JsonFileName
+        );
+        return Path.GetFullPath(path);
+    }
+
+    // Pull random scripture from JSON file.
+    private string GetRandScripture()
+    {
+        // string text;
+        Random random_PTE = new Random();
+
+        // Console.WriteLine($"{ ["John"]["3"][16-1]}\n");    // Test Print
+
+        if (_ScriptureObject_PTE == null) {
+            throw new Exception("Failed to deserialize scripture data.");
+        }
+        // Randomly select the Book
+        List<string> bookNames_PTE = _ScriptureObject_PTE.Keys.ToList();
+        string randomBook_PTE = bookNames_PTE[random_PTE.Next(bookNames_PTE.Count)];
+
+        // Randomly select the Chapter in that book
+        List<string> chapterList_PTE = _ScriptureObject_PTE[randomBook_PTE].Keys.ToList();
+        string randomChapter_PTE = chapterList_PTE[Random.Shared.Next(chapterList_PTE.Count)];
+        
+        // Randomly select the Verse (Single)
+        List<string> verseList_PTE = _ScriptureObject_PTE[randomBook_PTE][randomChapter_PTE];
+        string randomVerse_PTE = verseList_PTE[Random.Shared.Next(verseList_PTE.Count)];
+
+
+        // int actualVerseNumber = GetVerseNumber(verseList_PTE, randomVerse_PTE);
+
+        // return text;
+    }
+    private int GetVerseNumber(List<string> BookVerses_PTE, string chosenVerse_PTE)
+    {
+        int VerseNumber_PTE = BookVerses_PTE.IndexOf(chosenVerse_PTE) - 1;   // Actual Verse Number
+        return VerseNumber_PTE;
+    }
+    
+}

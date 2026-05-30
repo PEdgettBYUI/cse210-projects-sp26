@@ -10,24 +10,6 @@ using System.Text.Json;
 class Program
 {
 
-    // Import JSON from Relative directory - Taken from ChatGPT
-    // See Reference 2
-    static string GetJsonPath(string JsonFileName)
-    {
-        string path = Path.Combine(
-        AppContext.BaseDirectory,
-        "..",
-        "..",
-        "..",
-        "GPT_lazyimports",
-        "Truncated JSONs",
-        JsonFileName
-        );
-        return Path.GetFullPath(path);
-
-    }
-    // Pull random scripture from JSON file.
-
 
     static void Main(string[] args)
     {
@@ -41,15 +23,16 @@ class Program
         Console.WriteLine(testRef2); // This is possible because of the ToString Override
         */
         
-        // See Reference 2.
-        string json = File.ReadAllText(GetJsonPath("NT-Truncated-lds-scriptures-filtered.json"));
+        // // See Reference 2.
+        // string json = File.ReadAllText(GetJsonPath("NT-Truncated-lds-scriptures-filtered.json"));
 
-        Dictionary<string, Dictionary<string, List<string>>>? books =
-            JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<string>>>>(json);
+        // Dictionary<string, Dictionary<string, List<string>>>? books =
+        //     JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<string>>>>(json);
         
-        Console.WriteLine($"\n{books.Count}");
-        Console.WriteLine($"{ books["John"]["3"][16-1]}\n");
+        // Console.WriteLine($"\nBooks in JSON: {books.Count}");   // Test Print
+        // Console.WriteLine($"{ books["John"]["3"][16-1]}\n");    // Test Print
 
+        JsonScripture_Utility test = new JsonScripture_Utility("New Testament", "NT-Truncated-lds-scriptures-filtered.json");
 
     }
 
