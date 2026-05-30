@@ -6,13 +6,19 @@
 using System.Text.Json;
 public class JsonScripture_Utility
 {
-    private string VolumeName_PTE;  // NOTE: Probably won't use now, but might be useful in future
+    private string _VolumeName_PTE;  // NOTE: Probably won't use now, but might be useful in future
     private Dictionary<string, Dictionary<string, List<string>>>? _ScriptureObject_PTE;
+
+    // Reference Attributes to pass on
+    private string _BookName_PTE;
+    private int _ChapterNumber_PTE;
+    private int _VerseNumber_PTE;
+    private int? _EndVerseNumber_PTE;
 
 
 
     public JsonScripture_Utility(string NameOfScripture, string filename){
-        VolumeName_PTE = NameOfScripture;
+        _VolumeName_PTE = NameOfScripture;
 
         if (filename.Contains(".json")) {    
             // See Reference 2.     (Use for testing -> "NT-Truncated-lds-scriptures-filtered.json")
@@ -48,9 +54,9 @@ public class JsonScripture_Utility
     }
 
     // Pull random scripture from JSON file.
-    private string GetRandScripture()
+    // Part of the Constructor????
+    private void GetRandScripture()
     {
-        // string text;
         Random random_PTE = new Random();
 
         // Console.WriteLine($"{ ["John"]["3"][16-1]}\n");    // Test Print
@@ -61,6 +67,7 @@ public class JsonScripture_Utility
         // Randomly select the Book
         List<string> bookNames_PTE = _ScriptureObject_PTE.Keys.ToList();
         string randomBook_PTE = bookNames_PTE[random_PTE.Next(bookNames_PTE.Count)];
+        _BookName_PTE = randomBook_PTE;
 
         // Randomly select the Chapter in that book
         List<string> chapterList_PTE = _ScriptureObject_PTE[randomBook_PTE].Keys.ToList();
@@ -70,11 +77,15 @@ public class JsonScripture_Utility
         List<string> verseList_PTE = _ScriptureObject_PTE[randomBook_PTE][randomChapter_PTE];
         string randomVerse_PTE = verseList_PTE[Random.Shared.Next(verseList_PTE.Count)];
 
+        
 
-        // int actualVerseNumber = GetVerseNumber(verseList_PTE, randomVerse_PTE);
-
-        // return text;
+        // "Return"
+        _BookName_PTE = randomBook_PTE;
+        int.TryParse(randomChapter_PTE, out _ChapterNumber_PTE);
+        _VerseNumber_PTE = GetVerseNumber(verseList_PTE, randomVerse_PTE);
+        
     }
+
     private int GetVerseNumber(List<string> BookVerses_PTE, string chosenVerse_PTE)
     {
         int VerseNumber_PTE = BookVerses_PTE.IndexOf(chosenVerse_PTE) - 1;   // Actual Verse Number
