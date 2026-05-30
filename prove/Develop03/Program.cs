@@ -48,6 +48,7 @@ class Program
             JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, List<string>>>>(json);
         
         Console.WriteLine($"\n{books.Count}");
+        Console.WriteLine($"{ books["John"]["3"][16-1]}\n");
 
 
     }
