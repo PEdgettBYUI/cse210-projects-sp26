@@ -9,6 +9,7 @@ class Reference
     private int? _endVerse_PTE;   // nullable; use with _startVerse_PTE
 
     // Constructors
+    // DEV NOTE: Is this first one redundant? Maybe test later
     public Reference(string book, int chapter, int verse)
     {
         _book_PTE = book;
@@ -17,7 +18,7 @@ class Reference
         _startVerse_PTE = null;
         _endVerse_PTE = null;
     }
-    public Reference(string book, int chapter, int startVerse, int endVerse)
+    public Reference(string book, int chapter, int startVerse, int? endVerse)
     {
         _book_PTE = book;
         _chapter_PTE = chapter;
