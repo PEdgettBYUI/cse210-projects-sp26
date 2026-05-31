@@ -14,6 +14,7 @@ public class JsonScripture_Utility
     private int _ChapterNumber_PTE;
     private int _VerseNumber_PTE;
     private int? _EndVerseNumber_PTE;
+    private string _VerseText_PTE;
 
 
 
@@ -77,19 +78,27 @@ public class JsonScripture_Utility
         List<string> verseList_PTE = _ScriptureObject_PTE[randomBook_PTE][randomChapter_PTE];
         string randomVerse_PTE = verseList_PTE[Random.Shared.Next(verseList_PTE.Count)];
 
-        
 
-        // "Return"
+        // "Return" the values
         _BookName_PTE = randomBook_PTE;
         int.TryParse(randomChapter_PTE, out _ChapterNumber_PTE);
-        _VerseNumber_PTE = GetVerseNumber(verseList_PTE, randomVerse_PTE);
-        
+        _VerseNumber_PTE = FindVerseNumber(verseList_PTE, randomVerse_PTE);
+        _VerseText_PTE = randomVerse_PTE;
     }
 
-    private int GetVerseNumber(List<string> BookVerses_PTE, string chosenVerse_PTE)
+    private int FindVerseNumber(List<string> BookVerses_PTE, string chosenVerse_PTE)
     {
         int VerseNumber_PTE = BookVerses_PTE.IndexOf(chosenVerse_PTE) - 1;   // Actual Verse Number
         return VerseNumber_PTE;
     }
-    
+
+    // Getters
+
+    public string GetBookName() { return _BookName_PTE; }
+    public int GetChapterNumber() { return _ChapterNumber_PTE; }
+    public int GetVerseNumber() { return _VerseNumber_PTE; }
+    public int? GetEndVerseNumber() { return _EndVerseNumber_PTE; }
+    public string GetVerseText() { return _VerseText_PTE; }
+
+    // Setters Should not be needed for this class
 }
