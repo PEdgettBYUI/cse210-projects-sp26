@@ -1,6 +1,3 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Contracts;
 public class Word
 {
     public string jjmWordText;
@@ -12,15 +9,9 @@ public class Word
         jjmHiddenFlag = false;
     }
 
-    public bool GetHidden()
-    {
-        return jjmHiddenFlag;
-    }
+    public bool GetHidden() { return jjmHiddenFlag; }
 
-    public void SetHidden(bool value)
-    {
-        jjmHiddenFlag = value;
-    }
+    public void SetHidden(bool value) { jjmHiddenFlag = value; }
 
     public void Hide()
     {
@@ -32,7 +23,6 @@ public class Word
         {
             jjmHiddenFlag = false;
         }
-
     }
 
     override public string ToString()
