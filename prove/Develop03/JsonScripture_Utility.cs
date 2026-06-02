@@ -118,7 +118,7 @@ public class JsonScripture_Utility
     public string GetBookName() { return _BookName_PTE; }
     public int GetChapterNumber() { return _ChapterNumber_PTE; }
     public int GetVerseNumber() { return _VerseNumber_PTE; }
-    public int? GetEndVerseNumber() { return _EndVerseNumber_PTE; }
+    public int GetEndVerseNumber() { return _EndVerseNumber_PTE; }
     public string GetVerseText() { return _VerseText_PTE; }
     public bool GetIsSingleVerse() { return _IsSingleVerse_PTE; }
 
