@@ -7,13 +7,13 @@ using System.Text.Json;
 public class JsonScripture_Utility
 {
     private string _VolumeName_PTE;  // NOTE: Probably won't use now, but might be useful in future
-    private Dictionary<string, Dictionary<string, List<string>>>? _ScriptureObject_PTE;
+    private Dictionary<string, Dictionary<string, List<string>>> _ScriptureObject_PTE;
 
     // Reference Attributes to pass on
     private string _BookName_PTE;
     private int _ChapterNumber_PTE;
     private int _VerseNumber_PTE;
-    private int? _EndVerseNumber_PTE;
+    private int _EndVerseNumber_PTE;
     private string _VerseText_PTE;
     private bool _IsSingleVerse_PTE;
 
