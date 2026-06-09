@@ -9,8 +9,10 @@ public class Activity {
     private string _Name_PTE;
     private string _Description_PTE;
     private int _Duration_PTE;
-    private DateTime _StartTime_PTE;
-    private DateTime _EndTime_PTE;
+    protected DateTime _StartTime_PTE;
+    // private DateTime _EndTime_PTE;
+
+    
 
 
     public Activity(string Name, string Description, int Duration)
@@ -20,30 +22,28 @@ public class Activity {
         _Duration_PTE = Duration;
     }
 
-    public string IntroMessage()
+    public void IntroMessage()
     {
-        return "TEMP Intro";
+        Console.WriteLine($"Welcome to the {_Name_PTE} Activity");
+        Console.WriteLine(_Description_PTE);
+        Console.Write("How long in seconds will this take? ");
     }
 
-    public string ExitMessage()
+    public void ExitMessage()
     {
-        return "TEMP Exit";
-    }
-
-    public void RunActivity()
-    {
-        _StartTime_PTE = DateTime.Now;
-        _EndTime_PTE = _StartTime_PTE.AddSeconds(_Duration_PTE);
+        Console.WriteLine("Well Done!");
+        LoadingSpinner();
+        Console.WriteLine($"You have completed another {_Duration_PTE} of the {_Name_PTE} Activity.");
+        LoadingSpinner();
     }
 
     public bool CheckDuration()
     {
         DateTime CurrentTime_PTE = DateTime.Now;
-        if(CurrentTime_PTE > _EndTime_PTE)
-        {
+        DateTime EndTime_PTE = _StartTime_PTE.AddSeconds(_Duration_PTE);
+        if(CurrentTime_PTE > EndTime_PTE) { 
             return true;
-        }
-        return false;
+        } return false;
     }
 
     public void LoadingSpinner()

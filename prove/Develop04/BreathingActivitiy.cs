@@ -10,8 +10,18 @@ public class Breathing : Activity
     public Breathing(string Name, string Description, int Duration) 
         : base(Name, Description, Duration) {}
     
-    public int RunBreathing(int InTime, int OutTime)
+    public void RunBreathing(int InTime, int OutTime)
     {
-        return 2;
+        _StartTime_PTE = DateTime.Now;
+        IntroMessage();
+        LoadingSpinner();
+        
+        while(!CheckDuration())
+            Console.Write("Breath In... ");
+            LoadingCountdown();   // (InTime)
+            Console.Write("Breathe Out... ");
+            LoadingCountdown();   // (OutTime)
+
+        ExitMessage();
     }
 }
