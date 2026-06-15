@@ -1,7 +1,7 @@
 /* Patrick Thomas Edgett | Jacob Middledorf | 6/9/2026 
  * References
  * 1. https://chatgpt.com/share/6a2885b0-a200-83e8-931d-d90563abc586 - Get seconds from DateTime
- * 2.
+ * 2. Had Chat tell me how to convert string to int due to tiredness and illness - PTE.
  * 3.
  *
  */
@@ -11,6 +11,7 @@ public class Activity {
     private int _Duration_PTE;
     protected DateTime _StartTime_PTE;
     // private DateTime _EndTime_PTE;
+
 
     
 
@@ -22,19 +23,32 @@ public class Activity {
         _Duration_PTE = Duration;
     }
 
+    // See Ref. 2
     public void IntroMessage()
     {
         Console.WriteLine($"Welcome to the {_Name_PTE} Activity");
         Console.WriteLine(_Description_PTE);
         Console.Write("How long in seconds will this take? ");
+        var userInputDuration_PTE = Console.ReadLine();
+
+        if (int.TryParse(userInputDuration_PTE, out int duration))
+        {
+            _Duration_PTE = duration;
+        }
+        else
+        {
+            Console.WriteLine("Invalid number. Using 0 seconds.");
+            _Duration_PTE = 0;
+        }
     }
 
     public void ExitMessage()
     {
         Console.WriteLine("Well Done!");
-        LoadingSpinner();
+        LoadingSpinner(20);
         Console.WriteLine($"You have completed another {_Duration_PTE} of the {_Name_PTE} Activity.");
-        LoadingSpinner();
+        LoadingSpinner(20);
+        Console.Clear();
     }
 
     public bool CheckDuration()
@@ -46,14 +60,41 @@ public class Activity {
         } return false;
     }
 
-    public void LoadingSpinner()
+    //Given a duration of "frames" the spinner will run for that time
+    public void LoadingSpinner(int frames)
     {
-        Console.WriteLine("SPIN");
+        int counter = 0;
+        int cycles = 0;
+        while(cycles < 5)
+        {
+            if (counter == 5) { counter = -1; cycles++; };
+            counter++;
+            Thread.Sleep(250);   
+            switch (counter % frames)
+            {       
+            case 0: Console.Write("/"); break;
+            case 1: Console.Write("-"); break;
+            case 2: Console.Write("\\"); break;
+            case 3: Console.Write("|"); break;
+            }    
+        Console.Write("\b");
+        }
     }
     
-    public void LoadingCountdown()
+    public void LoadingCountdown(int StartTime)
     {
-        Console.WriteLine("3...2...1...");
+        // Current Design only works with Single Digit Values
+        Console.Write(" ");
+        while (StartTime > 0)
+        {
+            Console.Write("\b");
+            // Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+            Thread.Sleep(1000); // Pause for 1 second
+            Console.Write($"{StartTime}");
+            StartTime--;
+        }
+        Console.Write("\b");
+        Console.Write("0\n");
     }
 
 

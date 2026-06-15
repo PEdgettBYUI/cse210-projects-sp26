@@ -12,16 +12,18 @@ public class Breathing : Activity
     
     public void RunBreathing(int InTime, int OutTime)
     {
-        _StartTime_PTE = DateTime.Now;
         IntroMessage();
-        LoadingSpinner();
+        LoadingSpinner(20);
+        Console.Clear();
         
+        _StartTime_PTE = DateTime.Now;
         while(!CheckDuration())
+        {
             Console.Write("Breath In... ");
-            LoadingCountdown();   // (InTime)
+            LoadingCountdown(InTime);   // (InTime)
             Console.Write("Breathe Out... ");
-            LoadingCountdown();   // (OutTime)
-
+            LoadingCountdown(OutTime);   // (OutTime)
+        }
         ExitMessage();
     }
 }
