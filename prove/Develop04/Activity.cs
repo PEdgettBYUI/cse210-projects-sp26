@@ -63,14 +63,14 @@ public class Activity {
     //Given a duration of "frames" the spinner will run for that time
     public void LoadingSpinner(int maxCycles)
     {
-        int counter = 0;
-        int cycles = 0;
-        while(cycles < maxCycles)
+        int counter_jjm = 0;
+        int cycles_jjm = 0;
+        while(cycles_jjm < maxCycles)
         {
-            if (counter == 4) { counter = -1; cycles++; };
-            counter++;
+            if (counter_jjm == 4) { counter_jjm = -1; cycles_jjm++; };
+            counter_jjm++;
             Thread.Sleep(250);   
-            switch (counter % 4)
+            switch (counter_jjm % 4)
             {       
             case 0: Console.Write("/"); break;
             case 1: Console.Write("-"); break;

@@ -18,7 +18,7 @@ class Listing : Activity
         LoadingSpinner(5);
         
         // List of prompts
-        string[] prompts =
+        string[] prompts_jjm =
         {
             "Who are people that you appreciate?",
             "What are personal strengths of yours?",
@@ -28,10 +28,10 @@ class Listing : Activity
         };
 
         // Select a random prompt
-        Random rand = new Random();
-        string randPrompt = prompts[rand.Next(prompts.Length)];
+        Random rand_jjm = new Random();
+        string randPrompt_jjm = prompts_jjm[rand_jjm.Next(prompts_jjm.Length)];
       
-        Console.WriteLine($"--- {randPrompt} ---");
+        Console.WriteLine($"--- {randPrompt_jjm} ---");
 
 
         // Countdown before listing begins
@@ -44,7 +44,7 @@ class Listing : Activity
 
 
         // Collect items for the duration
-        List<string> items = new List<string>();
+        List<string> items_jjm = new List<string>();
         // DateTime endTime = DateTime.Now.AddSeconds(_Duration_PTE);
 
         _StartTime_PTE = DateTime.Now;
@@ -54,14 +54,14 @@ class Listing : Activity
         {
             if (Console.KeyAvailable)
             {
-                string item = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(item))
+                string item_jjm = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(item_jjm))
                 {
-                    items.Add(item);
+                    items_jjm.Add(item_jjm);
                 }
             }
         }
 
-        Console.WriteLine($"You listed {items.Count} items!");
+        Console.WriteLine($"You listed {items_jjm.Count} items!");
     }
 }
