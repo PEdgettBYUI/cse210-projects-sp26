@@ -60,7 +60,7 @@ public class Activity {
         } return false;
     }
 
-    //Given a duration of "frames" the spinner will run for that time
+    //Given a duration of "Cycles" the spinner will run for that time
     public void LoadingSpinner(int maxCycles)
     {
         int counter_jjm = 0;
