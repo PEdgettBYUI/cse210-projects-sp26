@@ -13,7 +13,7 @@ public class Breathing : Activity
     public void RunBreathing(int InTime, int OutTime)
     {
         IntroMessage();
-        LoadingSpinner(20);
+        LoadingSpinner(5);
         Console.Clear();
         
         _StartTime_PTE = DateTime.Now;

@@ -14,6 +14,9 @@ class Listing : Activity
         // int _Duration_PTE = int.Parse(Console.ReadLine());
         // Console.WriteLine();
 
+        Console.WriteLine("Get Ready...");
+        LoadingSpinner(5);
+        
         // List of prompts
         string[] prompts =
         {

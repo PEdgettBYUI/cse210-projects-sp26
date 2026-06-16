@@ -29,7 +29,8 @@ class Program
             Console.WriteLine("--- Activities Menus ---");
             Console.WriteLine("1. Breathing Activity\n2. Reflecting Activity\n3. Listing Activity\n4. Exit");
             Console.Write("\nChoose: > ");
-            int UserMenuSelect_PTE = int.Parse(Console.ReadLine());
+            int UserMenuSelect_PTE = 0;
+            UserMenuSelect_PTE = int.Parse(Console.ReadLine());
         
             switch (UserMenuSelect_PTE)
             {   
@@ -42,8 +43,8 @@ class Program
                 // Exit
                 case 4: done_PTE = true; break;
             }
-            Console.WriteLine("\nHave a Lovely Day!");
-            Thread.Sleep(3000);
         }
+        Console.WriteLine("\nHave a Lovely Day!");
+        Thread.Sleep(3000);
     }
 }
