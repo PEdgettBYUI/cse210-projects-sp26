@@ -13,6 +13,8 @@ public class Breathing : Activity
     public void RunBreathing(int InTime, int OutTime)
     {
         IntroMessage();
+        
+        Console.WriteLine("Get Ready...");
         LoadingSpinner(5);
         Console.Clear();
         

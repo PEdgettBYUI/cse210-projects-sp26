@@ -64,6 +64,8 @@ public class Reflecting : Activity
     {
         _StartTime_PTE = DateTime.Now;
         IntroMessage();
+        
+        Console.WriteLine("Get Ready...");
         LoadingSpinner(10);
         
         _StartTime_PTE = DateTime.Now;
