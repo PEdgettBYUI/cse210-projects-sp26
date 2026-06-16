@@ -64,11 +64,14 @@ public class Reflecting : Activity
     {
         _StartTime_PTE = DateTime.Now;
         IntroMessage();
-        LoadingSpinner(20);
+        LoadingSpinner(10);
         
+        _StartTime_PTE = DateTime.Now;
         while(!CheckDuration())
-            Console.Write($"\n{RandomString(_QuestionList_PTE)}");
-            LoadingSpinner(20);
+        {
+            Console.Write($"\n{RandomString(_QuestionList_PTE)} ");
+            LoadingSpinner(5);
+        }
         ExitMessage();
     }
 

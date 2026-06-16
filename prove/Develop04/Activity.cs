@@ -44,10 +44,10 @@ public class Activity {
 
     public void ExitMessage()
     {
-        Console.WriteLine("Well Done!");
-        LoadingSpinner(20);
-        Console.WriteLine($"You have completed another {_Duration_PTE} of the {_Name_PTE} Activity.");
-        LoadingSpinner(20);
+        Console.WriteLine("\nWell Done!");
+        LoadingSpinner(5);
+        Console.WriteLine($"You have completed another {_Duration_PTE} seconds of the {_Name_PTE} Activity.");
+        LoadingSpinner(5);
         Console.Clear();
     }
 
@@ -61,16 +61,16 @@ public class Activity {
     }
 
     //Given a duration of "frames" the spinner will run for that time
-    public void LoadingSpinner(int frames)
+    public void LoadingSpinner(int maxCycles)
     {
         int counter = 0;
         int cycles = 0;
-        while(cycles < 5)
+        while(cycles < maxCycles)
         {
-            if (counter == 5) { counter = -1; cycles++; };
+            if (counter == 4) { counter = -1; cycles++; };
             counter++;
             Thread.Sleep(250);   
-            switch (counter % frames)
+            switch (counter % 4)
             {       
             case 0: Console.Write("/"); break;
             case 1: Console.Write("-"); break;
