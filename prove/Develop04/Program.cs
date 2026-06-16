@@ -13,9 +13,14 @@ class Program
     {
         Console.WriteLine("\nHello Develop04 World!\n\n");
 
-        Breathing BreathingAct = new Breathing("Breathing", "ONCE UPON ZUUL", 20);
-        Reflecting ReflectingAct = new Reflecting("Reflecting", "ONCE UPON ZUUL", 20);
-        // Listing ListingAct = new Listing("Listing", "ONCE UPON ZUUL", 20);
+        string BreatheDescrip_PTE = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
+        string ReflectDescrip_PTE = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+        string ListDescrip_PTE = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+
+
+        Breathing BreathingAct = new Breathing("Breathing", BreatheDescrip_PTE, 20);
+        Reflecting ReflectingAct = new Reflecting("Reflecting", ReflectDescrip_PTE, 20);
+        Listing ListingAct = new Listing("Listing", ListDescrip_PTE, 20);
 
         bool done_PTE = false;
         // Menu
@@ -33,7 +38,7 @@ class Program
                 // Run Reflecting Activity
                 case 2: ReflectingAct.RunReflecting(); break;
                 // Run Listing Activity
-                // case 3: ListingAct.RunListing(); break;
+                case 3: ListingAct.RunListing(); break;
                 // Exit
                 case 4: done_PTE = true; break;
             }
