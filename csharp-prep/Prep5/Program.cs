@@ -16,7 +16,7 @@ class Program
         int CurrentYear_PTE = 2026;
         PromptUserBirthYear(out BirthYear_PTE);
 
-        DisplayResult(UserName_PTE, SquaredNumber_PTE, BirthYear_PTE);
+        DisplayResult(UserName_PTE, SquaredNumber_PTE, BirthYear_PTE, CurrentYear_PTE);
 
         Console.WriteLine();
     }
