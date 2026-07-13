@@ -1,10 +1,10 @@
-/* 
-*    Patrick T. Edgett 5/14/26
-*       Sources:
-*    1. Class documentation: https://byui-cse.github.io/cse210-course-2023/unit02/develop.html
-*    2. https://github.com/PEdgettBYUI/cse210-projects-sp26
-*    3. 
-*/
+/* References and Notes
+ * 1. Class documentation: https://byui-cse.github.io/cse210-course-2023/unit02/develop.html
+ * 2. https://github.com/PEdgettBYUI/cse210-projects-sp26
+ * 3. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
+ * 4. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
+ */
+
 using Develop05;
 
 class Menu
