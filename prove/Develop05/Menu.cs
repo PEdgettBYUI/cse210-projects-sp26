@@ -4,8 +4,8 @@
  * 3. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
  * 4. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
  */
-
 using Develop05;
+
 
 class Menu
 {
@@ -19,47 +19,64 @@ class Menu
     {   
         switch(choice)
         {
-            // Create new entry and add it to the journal.
+            // Create new goal object, and add it to the To-Do List.
             case 1:
                 Console.Clear();
                 Console.WriteLine("      Menu\n1.Create Simple Goal\n2.Create Eternal Goal\n3.Create Checklist Goal");
                 int subChoice = int.Parse(Console.ReadLine());
                 switch(subChoice)
                 {
+                    /* TODO: Add Question Function for Name, Description, Points*/
+                    // Simple Goal
                     case 1:
                         Console.Clear();
-                        Goal Simple = new Goal(Name,Discription,Points);
+                        Goal Simple = new Goal(Name,Description,Points);
                         break;
+                    // Eternal Goal
                     case 2:
                         Console.Clear();
-                        Goal Eternal = new Goal(Name,Discription,Points);
+                        Goal Eternal = new Eternal(Name,Description,Points);
                         break;
+                    // Checklist Goal
                     case 3:
+                        /*TODO: Add extra questions for BonusPoints and FinalCount*/
                         Console.Clear();
-                        Goal Checklist = new Goal(Name,Discription,Points);
+                        Goal Checklist = new Checklist(Name,Description,Points, BonusPoints, FinalCount);
                         break;
                 }
-
                 Console.Clear();
                 break;
-            // Load an existing journal.
+            // Display the current To-Do List of Goals
             case 2:
                 
                 PressToContinue();
+                Console.Clear();
                 break;
-            // Display each entry in the current journal.
+            // Save the current To-Do List of Goals
             case 3:
             
                 PressToContinue();
+                Console.Clear();
                 break;
-            // Save the current journal to a text file.
+            // Load a pre-existing To-Do List of Goals.
             // If "case 5" is called, this will guarantee no progress is lost before EXIT.
             case 4:
+                
+                
+                PressToContinue();
+                Console.Clear();
+                break;
+            // Record the completion of a Goal-Event
             case 5:
                 
                 
                 PressToContinue();
+                Console.Clear();
+                break;
+            // Exit the Program
+            case 6:
                 
+                PressToContinue();
                 Console.Clear();
                 break;
             // Invalid input case
@@ -70,6 +87,9 @@ class Menu
                 break;
         }
     }
+
+    // "Helper" Functions
+    
     // A Lazy attempt to clear the console even when the terminal window is compressed.
     // NOTE: Not as helpful as I had hoped :\
     static private void PressToContinue()
