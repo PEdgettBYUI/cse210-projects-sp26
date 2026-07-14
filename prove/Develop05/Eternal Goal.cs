@@ -18,7 +18,7 @@ public class Eternal : Goal
     
     private protected override string ToCsvOutputFormat()
     {
-        return $"{Get_name_PTE()},{Get_description_PTE()},{Get_points_PTE()}}";
+        return $"{Get_name_PTE()},{Get_description_PTE()},{Get_points_PTE()}";
     }
     public override string ToString()
     {
