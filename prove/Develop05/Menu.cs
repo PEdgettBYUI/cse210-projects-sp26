@@ -30,18 +30,18 @@ class Menu
                     // Simple Goal
                     case 1:
                         Console.Clear();
-                        Goal Simple = new Goal(Name,Description,Points);
+                        Goal Simple = new Goal(_name_PTE,_description_PTE,_points_PTE);
                         break;
                     // Eternal Goal
                     case 2:
                         Console.Clear();
-                        Goal Eternal = new Eternal(Name,Description,Points);
+                        Goal Eternal = new Eternal(_name_PTE,_description_PTE,_points_PTE);
                         break;
                     // Checklist Goal
                     case 3:
                         /*TODO: Add extra questions for BonusPoints and FinalCount*/
                         Console.Clear();
-                        Goal Checklist = new Checklist(Name,Description,Points, BonusPoints, FinalCount);
+                        Goal Checklist = new Checklist(_name_PTE,_description_PTE,_points_PTE, BonusPoints, FinalCount);
                         break;
                 }
                 Console.Clear();
