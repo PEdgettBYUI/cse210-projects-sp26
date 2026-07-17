@@ -11,7 +11,7 @@ class Menu
 {
     public void DisplayMenu()
     {
-        Console.WriteLine("      Menu\n1.Create New Goal\n2.Load Journal\n3.Display Current Journal\n4.Save Current Journal\n5.Save Entry & Exit\n");
+        Console.WriteLine("      Menu\n1.Create New Goal\n2.Display TO-DO List\n3.Save TO-DO List\n4.Load TO-DO List\n5.Record Event\n6.Exit Program\n");
     }
 
     // NOTE: Pass in the name of a given journal to call the functions to. 
@@ -30,18 +30,18 @@ class Menu
                     // Simple Goal
                     case 1:
                         Console.Clear();
-                        Goal Simple = new Goal(_name_PTE,_description_PTE,_points_PTE);
+                        Goal Simple = new Goal(name, description, points);
                         break;
                     // Eternal Goal
                     case 2:
                         Console.Clear();
-                        Goal Eternal = new Eternal(_name_PTE,_description_PTE,_points_PTE);
+                        Goal Eternal = new Eternal(name, description, points);
                         break;
                     // Checklist Goal
                     case 3:
                         /*TODO: Add extra questions for BonusPoints and FinalCount*/
                         Console.Clear();
-                        Goal Checklist = new Checklist(_name_PTE,_description_PTE,_points_PTE, BonusPoints, FinalCount);
+                        Goal Checklist = new Checklist(name, description, points, BonusPoints, FinalCount);
                         break;
                 }
                 Console.Clear();
@@ -99,5 +99,32 @@ class Menu
         Console.Clear();
         Console.Clear();
         Console.Clear();
+    }
+
+    static private void Questionaire(string goalType)
+    {
+        //Goal-Type Parameters
+        string name;
+        string description;
+        int points;
+        // Checklist Only
+        int bonusPoints;
+        int finalCount;
+        
+        // Get Info
+        Console.Write("What's the Name of your Goal? ");
+        name = ClementsFunctions.GetUserInputString();
+
+        Console.Write("Give a description for your Goal: ");
+        description = ClementsFunctions.GetUserInputString();
+
+        Console.Write("How many points is your Goal worth? ");
+        points = ClementsFunctions.GetUserInputInteger(" ");
+
+        if (goalType != "Checklist") return;
+        // Checklist Only
+        Console.Write("What's the Bonus Points for completing your Goal? ");
+        Console.Write("How many times must you do your goal before it's complete? ");
+
     }
 }

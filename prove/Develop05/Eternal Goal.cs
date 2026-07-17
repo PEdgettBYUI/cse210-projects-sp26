@@ -3,12 +3,13 @@
  */
 namespace Develop05;
 
+
 public class Eternal : Goal
 {
     
     // Constructor
     public Eternal(string name, string description, int points)
-        : base(name, description, points);
+        : base(name, description, points) {}
     
     // Methods
     public override void IsCompleted()

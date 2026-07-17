@@ -7,7 +7,7 @@ public class ToDoList
     List<Goal> _goalToDoList = new List<Goal>();
     
     // TEMP Functions
-    void SaveJournal()
+    void SaveToDoList()
     {
         //Check if the list has entires, if not, Output error message
         if (_goalToDoList.Count > 0)
