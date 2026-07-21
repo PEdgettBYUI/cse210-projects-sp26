@@ -20,12 +20,13 @@ public class Goal
     private string _name_PTE;
     private string _description_PTE;
     private int _points_PTE;
+    private char _goalType_PTE;
     
     // Setters and Getters
     // See Reference 3.
     private protected void ToggleGoalDone_PTE()
     { _goalDone_PTE = !_goalDone_PTE; }
-    protected bool Get_goalDone_PTE()
+    public bool Get_goalDone_PTE()
     { return _goalDone_PTE; }
     private protected string Get_name_PTE()
     { return _name_PTE; }
@@ -34,13 +35,21 @@ public class Goal
     private protected int Get_points_PTE()
     { return _points_PTE; }
     
+    // Goal-Type distinguisher for Save and Load
+    private protected void Set_goalType_PTE(char goalType)
+    {  _goalType_PTE = goalType; }
+    private protected char Get_goalType_PTE()
+    { return _goalType_PTE; }
+    
+    
     // Constructor
-    public Goal(string name, string description, int points)
+    public Goal(string name, string description, int points, bool goalDone = false)
     {
-        _goalDone_PTE = false;
+        _goalDone_PTE = goalDone;
         _name_PTE = name;
         _description_PTE = description;
         _points_PTE = points;
+        _goalType_PTE = 'S';    // S for simple
     }
     
     // Methods
@@ -51,6 +60,7 @@ public class Goal
             ToggleGoalDone_PTE();
             GivePoints();
         }
+        else { Console.WriteLine("You've Already Completed this Goal"); }
     }
 
     protected virtual int GivePoints()
@@ -63,7 +73,7 @@ public class Goal
 
     private protected virtual string ToCsvOutputFormat()
     {
-        return $"{Get_name_PTE()},{Get_description_PTE()},{Get_points_PTE()},{Get_goalDone_PTE()}";
+        return $"{Get_goalType_PTE()},{Get_name_PTE()},{Get_description_PTE()},{Get_points_PTE()},{Get_goalDone_PTE()}";
     }
 
     public override string ToString()

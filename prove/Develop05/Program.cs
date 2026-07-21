@@ -16,15 +16,18 @@ class Program
         Menu GoalMenu = new Menu();
         
         // Initialize Variables
-        string input_PTE;
-        int userChoice_PTE = ClementsFunctions.GetUserInputInteger();
-
+        int userChoice_PTE = 0;
+        
+        
+        // "Main" Program Loop; Loop Until User enters Exit value 6
         do
         {
+            // Display Menu & Prompt user for choice
             Console.WriteLine("\n  ~ Your Goal-E ~");
             GoalMenu.DisplayMenu();
-            Console.Write("Chose: ");
-
+            
+            // Get User Input and Parse to Int
+            userChoice_PTE = ClementsFunctions.GetUserInputInteger("  Choose: ");
 
         } while (userChoice_PTE != 6);
 
