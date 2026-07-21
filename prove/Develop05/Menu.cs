@@ -4,18 +4,18 @@
  * 3. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
  * 4. https://byui-cse.github.io/cse210-course-2023/unit05/prepare.html
  */
-using Develop05;
 
+namespace Develop05;
 
-class Menu
+internal class Menu
 {
     public void DisplayMenu()
     {
         Console.WriteLine("      Menu\n1.Create New Goal\n2.Display TO-DO List\n3.Save TO-DO List\n4.Load TO-DO List\n5.Record Event\n6.Exit Program\n");
     }
 
-    // NOTE: Pass in the name of a given journal to call the functions to. 
-    public void ParseUserChoice(int choice)
+    // NOTE: Pass in the name of the ToDo List with the User's choice 
+    public void ParseUserChoice(int choice, ToDoList toDoList)
     {   
         switch(choice)
         {
@@ -23,31 +23,33 @@ class Menu
             case 1:
                 Console.Clear();
                 Console.WriteLine("      Menu\n1.Create Simple Goal\n2.Create Eternal Goal\n3.Create Checklist Goal");
-                int subChoice = int.Parse(Console.ReadLine());
+                int subChoice = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
                 switch(subChoice)
                 {
                     /* TODO: Add Question Function for Name, Description, Points*/
                     // Simple Goal
                     case 1:
                         Console.Clear();
-                        Goal Simple = new Goal(name, description, points);
+                        toDoList.AddGoalToToDoList(GoalQuestionaire("Simple"));
                         break;
                     // Eternal Goal
                     case 2:
                         Console.Clear();
-                        Goal Eternal = new Eternal(name, description, points);
+                        toDoList.AddGoalToToDoList(GoalQuestionaire("Eternal"));
                         break;
                     // Checklist Goal
                     case 3:
-                        /*TODO: Add extra questions for BonusPoints and FinalCount*/
                         Console.Clear();
-                        Goal Checklist = new Checklist(name, description, points, BonusPoints, FinalCount);
+                        toDoList.AddGoalToToDoList(GoalQuestionaire("Checklist"));
                         break;
                 }
+                
+                PressToContinue();
                 Console.Clear();
                 break;
             // Display the current To-Do List of Goals
             case 2:
+                Console.WriteLine(toDoList);
                 
                 PressToContinue();
                 Console.Clear();
@@ -92,7 +94,7 @@ class Menu
     
     // A Lazy attempt to clear the console even when the terminal window is compressed.
     // NOTE: Not as helpful as I had hoped :\
-    static private void PressToContinue()
+    private static void PressToContinue()
     {
         Console.Write("\n> Press Any Key to Continue ");
         Console.ReadKey();
@@ -100,8 +102,10 @@ class Menu
         Console.Clear();
         Console.Clear();
     }
-
-    static private void Questionaire(string goalType)
+    
+    
+    // Takes a given string and prompts the user for inputs to be used in a Goal Constructor
+    static private Goal GoalQuestionaire(string goalType)
     {
         //Goal-Type Parameters
         string name;
@@ -121,10 +125,24 @@ class Menu
         Console.Write("How many points is your Goal worth? ");
         points = ClementsFunctions.GetUserInputInteger(" ");
 
-        if (goalType != "Checklist") return;
-        // Checklist Only
-        Console.Write("What's the Bonus Points for completing your Goal? ");
-        Console.Write("How many times must you do your goal before it's complete? ");
+        // Return New GoalType
+        switch (goalType)
+        {
+            case "Simple":
+                return new Goal(name, description, points);
+            case "Eternal":
+                return new Eternal(name, description, points);
+            case "Checklist":
+                // Checklist Only
+                Console.Write("How many times must you do your goal before it's complete? ");
+                finalCount = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
+                Console.Write("What's the Bonus Points for completing your Goal? ");
+                bonusPoints = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
 
+                return new Checklist(name, description, points, bonusPoints, finalCount);
+        }
+        // If no valid response is given, return nothing.
+        throw new Exception("Invalid GoalType. Nothing Returned.");
+        // return null;
     }
 }

@@ -4,7 +4,7 @@ using System.IO;
 
 public class ToDoList
 {
-    List<Goal> _goalToDoList = new List<Goal>();
+    private List<Goal> _goalToDoList = new List<Goal>();
     
     // TEMP Functions
     void SaveToDoList()
@@ -29,6 +29,17 @@ public class ToDoList
         }
     }
 
-    
+    public void AddGoalToToDoList(Goal aGoal)
+    { _goalToDoList.Add(aGoal); }
+
+    public override string ToString()
+    {
+        string allGoals = "";
+        foreach (Goal goalItem in _goalToDoList)
+        {
+            allGoals += $"goalItem.ToString()\n";
+        }
+        return allGoals;
+    }
     
 }
