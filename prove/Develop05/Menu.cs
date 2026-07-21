@@ -75,18 +75,21 @@ internal class Menu
                 List<(Goal, int)> incompleteGoalsList = new List<(Goal, int)>();
                 foreach (var goal in goalsList)
                 {
-                    if (goal.Get_goalDone_PTE())
+                    if (!goal.Get_goalDone_PTE())
                     {
                         incompleteGoalsList.Add( (goal, goalsList.IndexOf(goal)) );
                     }
                 }
                 
                 // Display the incomplete Goals
-                int menuNumber = 1;
-                foreach (var goal in incompleteGoalsList)
+                if (incompleteGoalsList != null)
                 {
-                    Console.WriteLine($"{menuNumber}. {goal}");
-                    menuNumber++;
+                    int menuNumber = 1;
+                    foreach (var goal in incompleteGoalsList)
+                    {
+                        Console.WriteLine($"{menuNumber}. {goal}");
+                        menuNumber++;
+                    }
                 }
                 
                 // Prompt the user for which Goal to record to
@@ -155,10 +158,8 @@ internal class Menu
                 return new Eternal(name, description, points);
             case "Checklist":
                 // Checklist Only
-                Console.Write("How many times must you do your goal before it's complete? ");
-                finalCount = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
-                Console.Write("What's the Bonus Points for completing your Goal? ");
-                bonusPoints = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
+                finalCount = ClementsFunctions.GetUserInputInteger("How many times must you do your goal before it's complete?");
+                bonusPoints = ClementsFunctions.GetUserInputInteger("What's the Bonus Points for completing your Goal?");
 
                 return new Checklist(name, description, points, bonusPoints, finalCount);
         }

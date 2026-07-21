@@ -28,8 +28,10 @@ class Program
             
             // Get User Input and Parse to Int
             userChoice_PTE = ClementsFunctions.GetUserInputInteger("  Choose: ");
+            GoalMenu.ParseUserChoice(userChoice_PTE, GoalList);
 
         } while (userChoice_PTE != 6);
+        
 
     }
 }

@@ -60,6 +60,6 @@ public class Checklist : Goal
     }
     public override string ToString()
     {
-        return $"[{BoolToCharacter()}] {Get_points_PTE()} ({Get_description_PTE()}) -- Currently completed: {Get_currentCount_PTE()}/{Get_finalCount_PTE()}";
+        return $"[{BoolToCharacter()}] {Get_name_PTE()} ({Get_description_PTE()}) -- Currently completed: {Get_currentCount_PTE()}/{Get_finalCount_PTE()}";
     }
 }

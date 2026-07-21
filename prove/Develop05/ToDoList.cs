@@ -4,9 +4,13 @@ using System.IO;
 
 public class ToDoList
 {
+    private int _goalHighScore;
     private List<Goal> _goalToDoList = new List<Goal>();
     
-    // Setters adn Getters
+    // Setters and Getters
+    public int Get_goalHighScore()
+    { return _goalHighScore; }
+    public void Set_goalHighScore(int goalHighScore) { _goalHighScore = goalHighScore; }
     public List<Goal> Get_goalToDoList() { return _goalToDoList; }
     
     
@@ -41,12 +45,16 @@ public class ToDoList
         if (System.IO.File.Exists(filename))
         {
             string[] lines_PTE = System.IO.File.ReadAllLines(filename);
-
+            string[] headerLess_PTE = lines_PTE.Skip(1).ToArray();
+            
+            // Set current High Score value
+            Set_goalHighScore(int.Parse(lines_PTE[0]));
+            
             // Read each line from the file
-            foreach (string line in lines_PTE)
+            foreach (string line in headerLess_PTE)
             {
                 // Split the line into parts at the '#'
-                string[] parts_PTE = line.Split("#");
+                string[] parts_PTE = line.Split(",");
                 // Use the split parts to instance an Entry with the "Loading" constructor
                 string f_goalType_PTE = parts_PTE[0];
                 string f_goalname_PTE = parts_PTE[1];
@@ -99,7 +107,7 @@ public class ToDoList
         string allGoals = "";
         foreach (Goal goalItem in _goalToDoList)
         {
-            allGoals += $"goalItem.ToString()\n";
+            allGoals += $"{goalItem.ToString()}\n";
         }
         return allGoals;
     }
