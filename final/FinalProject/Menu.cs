@@ -7,142 +7,50 @@
 
 namespace Develop05;
 
-internal class Menu
-{
-    public void DisplayMenu()
+    static class Menu
     {
-        Console.WriteLine("      Menu\n1.Create New Goal\n2.Display TO-DO List\n3.Save TO-DO List\n4.Load TO-DO List\n5.Record Event\n6.Exit Program\n");
-    }
-
-    // NOTE: Pass in the name of the ToDo List with the User's choice 
-    public void ParseUserChoice(int choice, ToDoList toDoList)
-    {   
-        switch(choice)
+        public static void StartMenu()
         {
-            // Create new goal object, and add it to the To-Do List.
-            case 1:
-                Console.Clear();
-                Console.WriteLine("      Menu\n1.Create Simple Goal\n2.Create Eternal Goal\n3.Create Checklist Goal");
-                int subChoice = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
-                switch(subChoice)
+            while (true)
+            {
+                Console.WriteLine("=== MAIN MENU ===");
+                Console.WriteLine("1. Start Game");
+                Console.WriteLine("2. Quit");
+                Console.Write("Choose: ");
+
+                string choice = Console.ReadLine();
+
+                if (choice == "1")
                 {
-                    /* TODO: Add Question Function for Name, Description, Points*/
-                    // Simple Goal
-                    case 1:
-                        Console.Clear();
-                        toDoList.AddGoalToToDoList(GoalQuestionaire("Simple"));
-                        break;
-                    // Eternal Goal
-                    case 2:
-                        Console.Clear();
-                        toDoList.AddGoalToToDoList(GoalQuestionaire("Eternal"));
-                        break;
-                    // Checklist Goal
-                    case 3:
-                        Console.Clear();
-                        toDoList.AddGoalToToDoList(GoalQuestionaire("Checklist"));
-                        break;
+                    Program.StartGameWrapper();
+                    return;
                 }
-                
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Display the current To-Do List of Goals
-            case 2:
-                Console.WriteLine(toDoList);
-                
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Save the current To-Do List of Goals
-            case 3:
-            
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Load a pre-existing To-Do List of Goals.
-            // If "case 5" is called, this will guarantee no progress is lost before EXIT.
-            case 4:
-                
-                
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Record the completion of a Goal-Event
-            case 5:
-                
-                
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Exit the Program
-            case 6:
-                
-                PressToContinue();
-                Console.Clear();
-                break;
-            // Invalid input case
-            default:
-                Console.Clear();
-                Console.WriteLine("[INVALID Input!] Please put in a Valid Entry.]\n");
-                
-                break;
+                else if (choice == "2")
+                {
+                    Environment.Exit(0);
+                }
+            }
         }
-    }
 
-    // "Helper" Functions
-    
-    // A Lazy attempt to clear the console even when the terminal window is compressed.
-    // NOTE: Not as helpful as I had hoped :\
-    private static void PressToContinue()
-    {
-        Console.Write("\n> Press Any Key to Continue ");
-        Console.ReadKey();
-        Console.Clear();
-        Console.Clear();
-        Console.Clear();
-    }
-    
-    
-    // Takes a given string and prompts the user for inputs to be used in a Goal Constructor
-    static private Goal GoalQuestionaire(string goalType)
-    {
-        //Goal-Type Parameters
-        string name;
-        string description;
-        int points;
-        // Checklist Only
-        int bonusPoints;
-        int finalCount;
-        
-        // Get Info
-        Console.Write("What's the Name of your Goal? ");
-        name = ClementsFunctions.GetUserInputString();
-
-        Console.Write("Give a description for your Goal: ");
-        description = ClementsFunctions.GetUserInputString();
-
-        Console.Write("How many points is your Goal worth? ");
-        points = ClementsFunctions.GetUserInputInteger(" ");
-
-        // Return New GoalType
-        switch (goalType)
+        public static string BattleMenu()
         {
-            case "Simple":
-                return new Goal(name, description, points);
-            case "Eternal":
-                return new Eternal(name, description, points);
-            case "Checklist":
-                // Checklist Only
-                Console.Write("How many times must you do your goal before it's complete? ");
-                finalCount = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
-                Console.Write("What's the Bonus Points for completing your Goal? ");
-                bonusPoints = ClementsFunctions.GetUserInputInteger(Console.ReadLine());
+            Console.WriteLine("\nChoose your action:");
+            Console.WriteLine("Fighting Moves:");
+            Console.WriteLine(" 1. Punch");
+            Console.WriteLine(" 2. Kick");
+            Console.WriteLine(" 3. Strike");
 
-                return new Checklist(name, description, points, bonusPoints, finalCount);
+            Console.WriteLine("Magic Moves:");
+            Console.WriteLine(" 4. Fire Magic");
+            Console.WriteLine(" 5. Ice Magic");
+            Console.WriteLine(" 6. Light Magic");
+
+            Console.WriteLine("Items:");
+            Console.WriteLine(" 7. Sword");
+            Console.WriteLine(" 8. Gun");
+            Console.WriteLine(" 9. Potion");
+
+            Console.Write("Choose: ");
+            return Console.ReadLine();
         }
-        // If no valid response is given, return nothing.
-        throw new Exception("Invalid GoalType. Nothing Returned.");
-        // return null;
     }
-}
