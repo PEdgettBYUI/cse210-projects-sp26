@@ -24,18 +24,18 @@ namespace TurnBasedFighter
             while (currentMonsterIndex < monsters.Count)
             {
                 Monster enemy = monsters[currentMonsterIndex];
-                Console.WriteLine($"\nA new monster appears! {enemy.Description}");
+                Console.WriteLine($"\nYou encounter a monster {enemy.Description}");
                 Battle(enemy);
 
                 if (enemy.IsDefeated())
                 {
-                    Console.WriteLine($"{enemy.Type} defeated!");
+                    Console.WriteLine($"{enemy.Type} defeated");
                     player.RewardPoints(enemy.Difficulty);
                     currentMonsterIndex++;
                 }
             }
 
-            Console.WriteLine("\n🎉 Congratulations! You defeated all monsters! 🎉");
+            Console.WriteLine("\nCongratulations! You Won");
         }
 
         static void Battle(Monster enemy)

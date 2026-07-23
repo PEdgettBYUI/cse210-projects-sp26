@@ -13,7 +13,7 @@ namespace Develop05;
         {
             while (true)
             {
-                Console.WriteLine("=== MAIN MENU ===");
+                Console.WriteLine("MAIN MENU");
                 Console.WriteLine("1. Start Game");
                 Console.WriteLine("2. Quit");
                 Console.Write("Choose: ");
@@ -34,22 +34,7 @@ namespace Develop05;
 
         public static string BattleMenu()
         {
-            Console.WriteLine("\nChoose your action:");
-            Console.WriteLine("Fighting Moves:");
-            Console.WriteLine(" 1. Punch");
-            Console.WriteLine(" 2. Kick");
-            Console.WriteLine(" 3. Strike");
-
-            Console.WriteLine("Magic Moves:");
-            Console.WriteLine(" 4. Fire Magic");
-            Console.WriteLine(" 5. Ice Magic");
-            Console.WriteLine(" 6. Light Magic");
-
-            Console.WriteLine("Items:");
-            Console.WriteLine(" 7. Sword");
-            Console.WriteLine(" 8. Gun");
-            Console.WriteLine(" 9. Potion");
-
+            Console.WriteLine("Select your move:\nAttack:\n1.Punch DNG:{Damage} SPEED:{Speed}\n2.Kick DNG:{Damage} SPEED:{Speed}\nMagic:\n3. Fireball DNG:{Damage} SPEED:{Speed}\n4. Air Cannon DNG:{Damage} SPEED:{Speed}\n5. Rock Throw DNG:{Damage} SPEED:{Speed}\nItems:\n6. Gun DNG:{Damage} SPEED:{Speed}\n7. Sword DNG:{Damage} SPEED:{Speed}\n8. HP Potion DNG:{Damage} SPEED:{Speed}");
             Console.Write("Choose: ");
             return Console.ReadLine();
         }
